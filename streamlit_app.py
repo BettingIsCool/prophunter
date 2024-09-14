@@ -2,6 +2,7 @@ import time
 import pandas as pd
 import streamlit as st
 from st_paywall import add_auth
+from streamlit_autorefresh import st_autorefresh
 
 st.set_page_config(page_title="PropHunter by BettingIsCool", page_icon="🍀", layout="wide", initial_sidebar_state="expanded")
 
@@ -14,6 +15,8 @@ placeholder1 = st.empty()
 placeholder1.markdown(TEXT_LANDING_PAGE)
 
 add_auth(required=True)
+
+st_autorefresh(interval=60 * 1000, debounce=True)
 
 placeholder1.empty()
 
