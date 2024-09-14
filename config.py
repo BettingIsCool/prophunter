@@ -54,6 +54,8 @@ TEXT_BEST_PRACTICE = """
 
 👉 If your book of choice is not listed then there are many mirror sites (clones) that you could reference, i.e. unibet has the same odds as 888/mgreen/leovegas. From what I know ceasars (us) has the same odds as william hill, etc. so it's often just about finding out which US/EU/UK books are using the same odds.
 
+👉 If you see a book in the list of supported bookmakers (front page), it's still possible that no bets come through. This means that either there are currently no value bets or that the api does not support prop markets for the selected book yet. However coverage is expanding, hence support for new bookmakers and prop markets for existing bookmakers will be added in future releases.
+
 GOOD LUCK and enjoy your betting!
 
 """
