@@ -1,4 +1,5 @@
 SQLAlchemy
 st-paywall
+streamlit-autorefresh
 mysql-connector-python
 
