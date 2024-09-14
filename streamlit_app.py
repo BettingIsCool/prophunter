@@ -16,8 +16,6 @@ placeholder1.markdown(TEXT_LANDING_PAGE)
 
 add_auth(required=True)
 
-st_autorefresh(interval=60 * 1000, debounce=True)
-
 placeholder1.empty()
 
 
@@ -46,6 +44,9 @@ def highlight_outdated_odds(val):
  else:
   color = 'green'
  return f'color: {color}'
+
+if datetime.now().second == 0:
+  refresh_table()
 
 st.button('Refresh Table', on_click=refresh_table)
 
