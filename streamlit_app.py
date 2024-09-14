@@ -74,7 +74,7 @@ if selected_regions != '()':
     if bets:
     
       bets_df = pd.DataFrame(bets)
-      bets_df = bets_df.rename(columns={'starts': 'STARTS', 'league': 'LEAGUE', 'runner_home': 'HOME_TEAM', 'runner_away': 'AWAY_TEAM', 'market': 'MARKET', 'selection': 'SELECTION', 'side': 'SIDE', 'line': 'LINE', 'odds_american': 'ODDS', 'ref_odds_american': 'REF_ODDS', 'fair_odds_american': 'FAIR_ODDS', 'book': 'BOOKMAKER', 'region': 'REGION', 'value': 'VALUE', 'timestamp': 'LAST_UPDATE'})
+      #bets_df = bets_df.rename(columns={'starts': 'STARTS', 'league': 'LEAGUE', 'runner_home': 'HOME_TEAM', 'runner_away': 'AWAY_TEAM', 'market': 'MARKET', 'selection': 'SELECTION', 'side': 'SIDE', 'line': 'LINE', 'odds_american': 'ODDS', 'ref_odds_american': 'REF_ODDS', 'fair_odds_american': 'FAIR_ODDS', 'book': 'BOOKMAKER', 'region': 'REGION', 'value': 'VALUE', 'timestamp': 'LAST_UPDATE'})
 
       if odds_display == 'American':
         bets_df = bets_df.rename(columns={'starts': 'STARTS', 'league': 'LEAGUE', 'runner_home': 'HOME_TEAM', 'runner_away': 'AWAY_TEAM', 'market': 'MARKET', 'selection': 'SELECTION', 'side': 'SIDE', 'line': 'LINE', 'odds': 'ODDS', 'ref_odds': 'REF_ODDS', 'fair_odds': 'FAIR_ODDS', 'book': 'BOOKMAKER', 'region': 'REGION', 'value': 'VALUE', 'timestamp': 'LAST_UPDATE'})
