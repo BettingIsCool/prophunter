@@ -2,7 +2,6 @@ import time
 import pandas as pd
 import streamlit as st
 from st_paywall import add_auth
-from streamlit_autorefresh import st_autorefresh
 
 st.set_page_config(page_title="PropHunter by BettingIsCool", page_icon="🍀", layout="wide", initial_sidebar_state="expanded")
 
@@ -44,9 +43,6 @@ def highlight_outdated_odds(val):
  else:
   color = 'green'
  return f'color: {color}'
-
-if datetime.now().second == 0:
-  refresh_table()
 
 st.button('Refresh Table', on_click=refresh_table)
 
