@@ -88,4 +88,6 @@ if selected_regions != '()':
       if len(bets_df) > 0:
         st.write(styled_df)
 
+        st.write(datetime.now())
+
         st.markdown(TEXT_BEST_PRACTICE)
