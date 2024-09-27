@@ -86,5 +86,5 @@ if selected_regions != '()':
         styled_df = bets_df.style.applymap(color_cells, subset=['VALUE']).applymap(highlight_outdated_odds, subset=['LAST_UPDATE']).format({'LINE': '{:g}'.format, 'ODDS': '{:,.3f}'.format, 'REF_ODDS': '{:,.3f}'.format, 'FAIR_ODDS': '{:,.3f}'.format, 'VALUE': '{:,.2%}'.format})
       
       if len(bets_df) > 0:
-        st.write(styled_df)
+        st.dataframe(styled_df, column_config={"LINK": st.column_config.LinkColumn("LINK")})
         st.markdown(TEXT_BEST_PRACTICE)
