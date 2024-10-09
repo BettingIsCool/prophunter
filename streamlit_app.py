@@ -48,6 +48,8 @@ st.button('Refresh Table', on_click=refresh_table)
 
 odds_display = st.sidebar.radio("Display Odds", ['Decimal', 'American'], index=0)
 
+bankroll = st.sidebar.number_input("Bankroll", min_value=0.01, value=1000.00, step=1.00, format="%0.2f")
+
 min_val = st.sidebar.slider(label='Min Value Percentage', min_value=0.00, max_value=25.0, value=2.5, step=0.5)
 
 unique_leagues = ['NFL', 'NBA', 'NHL', 'MLB']
@@ -74,6 +76,13 @@ if selected_regions != '()':
     if bets:
     
       bets_df = pd.DataFrame(bets)
+
+      # Add kelly stakes
+      stakes = list()
+      for index, row in bets_df.iterrows():
+        stakes.append(bankroll * row['value'] / (row['odds'] - 1))
+      bets_df.insert(11, "K-STAKE", stakes, True)
+      
       #bets_df = bets_df.rename(columns={'starts': 'STARTS', 'league': 'LEAGUE', 'runner_home': 'HOME_TEAM', 'runner_away': 'AWAY_TEAM', 'market': 'MARKET', 'selection': 'SELECTION', 'side': 'SIDE', 'line': 'LINE', 'odds_american': 'ODDS', 'ref_odds_american': 'REF_ODDS', 'fair_odds_american': 'FAIR_ODDS', 'book': 'BOOKMAKER', 'region': 'REGION', 'value': 'VALUE', 'timestamp': 'LAST_UPDATE'})
 
       if odds_display == 'American':
