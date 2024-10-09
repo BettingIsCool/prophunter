@@ -81,17 +81,17 @@ if selected_regions != '()':
       stakes = list()
       for index, row in bets_df.iterrows():
         stakes.append(bankroll * row['value'] / (row['odds'] - 1))
-      bets_df.insert(11, "K-STAKE", stakes, True)
+      bets_df.insert(11, 'K-STAKE', stakes, True)
       
       #bets_df = bets_df.rename(columns={'starts': 'STARTS', 'league': 'LEAGUE', 'runner_home': 'HOME_TEAM', 'runner_away': 'AWAY_TEAM', 'market': 'MARKET', 'selection': 'SELECTION', 'side': 'SIDE', 'line': 'LINE', 'odds_american': 'ODDS', 'ref_odds_american': 'REF_ODDS', 'fair_odds_american': 'FAIR_ODDS', 'book': 'BOOKMAKER', 'region': 'REGION', 'value': 'VALUE', 'timestamp': 'LAST_UPDATE'})
 
       if odds_display == 'American':
         bets_df = bets_df.rename(columns={'starts': 'STARTS', 'league': 'LEAGUE', 'runner_home': 'HOME_TEAM', 'runner_away': 'AWAY_TEAM', 'market': 'MARKET', 'selection': 'SELECTION', 'side': 'SIDE', 'line': 'LINE', 'odds_american': 'ODDS', 'ref_odds_american': 'REF_ODDS', 'fair_odds_american': 'FAIR_ODDS', 'book': 'BOOKMAKER', 'link': 'LINK', 'region': 'REGION', 'value': 'VALUE', 'timestamp': 'LAST_UPDATE'})
-        bets_df = bets_df[['STARTS', 'LEAGUE', 'HOME_TEAM', 'AWAY_TEAM', 'MARKET', 'SELECTION', 'SIDE', 'LINE', 'ODDS', 'REF_ODDS', 'FAIR_ODDS', 'VALUE', 'BOOKMAKER', 'LINK', 'REGION', 'LAST_UPDATE']]
+        bets_df = bets_df[['STARTS', 'LEAGUE', 'HOME_TEAM', 'AWAY_TEAM', 'MARKET', 'SELECTION', 'SIDE', 'LINE', 'ODDS', 'REF_ODDS', 'FAIR_ODDS', 'VALUE', 'K-STAKE', 'BOOKMAKER', 'LINK', 'REGION', 'LAST_UPDATE']]
         styled_df = bets_df.style.applymap(color_cells, subset=['VALUE']).applymap(highlight_outdated_odds, subset=['LAST_UPDATE']).format({'LINE': '{:g}'.format, 'ODDS': '{0:g}'.format, 'REF_ODDS': '{0:g}'.format, 'FAIR_ODDS': '{0:g}'.format, 'VALUE': '{:,.2%}'.format})
       elif odds_display == 'Decimal':
         bets_df = bets_df.rename(columns={'starts': 'STARTS', 'league': 'LEAGUE', 'runner_home': 'HOME_TEAM', 'runner_away': 'AWAY_TEAM', 'market': 'MARKET', 'selection': 'SELECTION', 'side': 'SIDE', 'line': 'LINE', 'odds': 'ODDS', 'ref_odds': 'REF_ODDS', 'fair_odds': 'FAIR_ODDS', 'book': 'BOOKMAKER', 'link': 'LINK', 'region': 'REGION', 'value': 'VALUE', 'timestamp': 'LAST_UPDATE'})
-        bets_df = bets_df[['STARTS', 'LEAGUE', 'HOME_TEAM', 'AWAY_TEAM', 'MARKET', 'SELECTION', 'SIDE', 'LINE', 'ODDS', 'REF_ODDS', 'FAIR_ODDS', 'VALUE', 'BOOKMAKER', 'LINK', 'REGION', 'LAST_UPDATE']]
+        bets_df = bets_df[['STARTS', 'LEAGUE', 'HOME_TEAM', 'AWAY_TEAM', 'MARKET', 'SELECTION', 'SIDE', 'LINE', 'ODDS', 'REF_ODDS', 'FAIR_ODDS', 'VALUE', 'K-STAKE', 'BOOKMAKER', 'LINK', 'REGION', 'LAST_UPDATE']]
         styled_df = bets_df.style.applymap(color_cells, subset=['VALUE']).applymap(highlight_outdated_odds, subset=['LAST_UPDATE']).format({'LINE': '{:g}'.format, 'ODDS': '{:,.3f}'.format, 'REF_ODDS': '{:,.3f}'.format, 'FAIR_ODDS': '{:,.3f}'.format, 'VALUE': '{:,.2%}'.format})
       
       if len(bets_df) > 0:
