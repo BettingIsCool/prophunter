@@ -48,7 +48,7 @@ st.button('Refresh Table', on_click=refresh_table)
 
 odds_display = st.sidebar.radio("Display Odds", ['Decimal', 'American'], index=0)
 
-bankroll = st.sidebar.number_input("Bankroll", min_value=0.01, value=1000.00, step=1.00, format="%0.2f")
+bankroll = st.sidebar.number_input("Bankroll", min_value=0.01, value=2500.00, step=1.00, format="%0.2f")
 
 min_val = st.sidebar.slider(label='Min Value Percentage', min_value=0.00, max_value=25.0, value=2.5, step=0.5)
 
