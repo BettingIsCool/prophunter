@@ -1,4 +1,4 @@
-TABLE_BETS = 'prophunter'
+TABLE_BETS = 'bets'
 
 
 # Display text om landing page
