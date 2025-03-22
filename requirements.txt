@@ -1,3 +1,4 @@
 SQLAlchemy
 st-paywall
+streamlit==1.41
 mysql-connector-python
